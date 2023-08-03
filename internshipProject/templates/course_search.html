@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add your CSS and other headers if needed -->
+</head>
+<body>
+    <h2>Course Search</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="major">Select your major:</label>
+        <select name="major" id="major">
+            {% for major in majors %}
+                <option value="{{ major.major_id }}">{{ major.major_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" name="search" value="Search">
+    </form>
+</body>
+</html>
+{% endblock %}
